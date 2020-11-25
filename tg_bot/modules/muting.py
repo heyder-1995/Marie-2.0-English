@@ -36,15 +36,15 @@ def mute(bot: Bot, update: Update, args: List[str]) -> str:
 
     if member:
         if is_user_admin(chat, user_id, member=member):
-            message.reply_text("Afraid I can't stop an admin from talking!")
+            message.reply_text("Qorxuram ki, bir adminin danışmasına mane ola bilmirəm!")
 
         elif member.can_send_messages is None or member.can_send_messages:
             bot.restrict_chat_member(chat.id, user_id, can_send_messages=False)
-            message.reply_text("👍🏻 muted! 🤐")
+            message.reply_text("👍🏻 Səssiz Oldu! 🤐")
             return "<b>{}:</b>" \
                    "\n#MUTE" \
                    "\n<b>Admin:</b> {}" \
-                   "\n<b>User:</b> {}".format(html.escape(chat.title),
+                   "\n<b>İstifadəçi:</b> {}".format(html.escape(chat.title),
                                               mention_html(user.id, user.first_name),
                                               mention_html(member.user.id, member.user.first_name))
 
